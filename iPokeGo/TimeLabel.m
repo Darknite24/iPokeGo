@@ -15,8 +15,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.preferredBackgroundColor = nil;
         self.font = [UIFont boldSystemFontOfSize:10.0];
-        self.textAlignment = NSTextAlignmentLeft;
+        self.textAlignment = NSTextAlignmentCenter;
+        self.textColor = [UIColor colorWithWhite:.1f alpha:1.0f];
     }
     return self;
 }
@@ -31,6 +33,18 @@
     });
     
     self.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:date]];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    self.layer.cornerRadius = 3.0f;
+    if (!self.preferredBackgroundColor) {
+        self.layer.backgroundColor = [UIColor colorWithWhite:.8f alpha:0.5f].CGColor;
+    } else {
+        self.layer.backgroundColor = self.preferredBackgroundColor.CGColor;
+    }
+    
+    [super drawRect:rect];
 }
 
 @end

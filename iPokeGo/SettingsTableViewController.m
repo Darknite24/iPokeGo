@@ -41,7 +41,7 @@ NSString * const BackgroundSettingChangedNotification   = @"Poke.BackgroundSetti
     if([server_name length] == 0)
     {
         self.serverTextLabel.textColor = [UIColor grayColor];
-        self.serverTextLabel.text = @"Empty";
+        self.serverTextLabel.text = NSLocalizedString(@"Empty", @"The string to display in settings when no server is set");
     }
     else
     {

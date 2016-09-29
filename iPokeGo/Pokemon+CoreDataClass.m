@@ -43,6 +43,31 @@
     if (!self.rarity) {
         self.rarity = values[@"pokemon_rarity"];
     }
+    if (values[@"individual_attack"] != [NSNull null]) {
+        if (self.attack == 0) {
+            self.attack = [values[@"individual_attack"] intValue];
+        }
+    }
+    if (values[@"individual_defense"] != [NSNull null]) {
+        if (self.defense == 0) {
+            self.defense = [values[@"individual_defense"] intValue];
+        }
+    }
+    if (values[@"individual_stamina"] != [NSNull null]) {
+        if (self.stamina == 0) {
+            self.stamina = [values[@"individual_stamina"] intValue];
+        }
+    }
+    if (values[@"move_1"] != [NSNull null]) {
+        if (self.move1 == 0) {
+            self.move1 = [values[@"move_1"] intValue];
+        }
+    }
+    if (values[@"move_2"] != [NSNull null]) {
+        if (self.move2 == 0) {
+            self.move2 = [values[@"move_2"] intValue];
+        }
+    }
 }
 
 - (BOOL)isFav

@@ -20,6 +20,8 @@
 #import "FollowLocationHelper.h"
 #import "TagButton.h"
 #import "DeviceVibrate.h"
+#import "PokemonCalloutView.h"
+#import "PokemonAnnotation.h"
 
 @import CoreData;
 
@@ -42,7 +44,6 @@
 @property NSDictionary *locationsSearched;
 
 @property CLLocationManager *locationManager;
-@property NSDictionary *localization;
 @property CLLocationDegrees oldLatitudeDelta;
 
 @property FollowLocationHelper *followLocationHelper;
@@ -61,7 +62,6 @@ BOOL mapCenterToGPSLocation                 = YES;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        [self loadLocalization];
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
         
@@ -103,7 +103,7 @@ BOOL mapCenterToGPSLocation                 = YES;
         
         [self.mapview setRegion:region animated:NO];
     }
-    
+        
     [self reloadMap];
 }
 
@@ -376,6 +376,9 @@ BOOL mapCenterToGPSLocation                 = YES;
             ((PokemonAnnotationView *)view).timeLabel.hidden = self.mapview.region.span.latitudeDelta >= DeltaHideText;
             ((PokemonAnnotationView *)view).timerLabel.hidden = self.mapview.region.span.latitudeDelta >= DeltaHideText;
             ((PokemonAnnotationView *)view).distanceLabel.hidden = self.mapview.region.span.latitudeDelta >= DeltaHideText;
+            if (((PokemonAnnotation*)annotation).pokemon.isFav) {
+                ((PokemonAnnotationView *)view).enablePulsing = YES;
+            }
         }
         else if ([annotation isKindOfClass:[GymAnnotation class]])
         {
@@ -462,6 +465,38 @@ BOOL mapCenterToGPSLocation                 = YES;
         [endingItem openInMapsWithLaunchOptions:launchOptions];
     }
 }
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    if ([view isKindOfClass:[PokemonAnnotationView class]]) {
+        if ( ((PokemonAnnotation*)view.annotation).pokemon.attack > 0) {
+            [self updateAnnotationPosition:(PokemonAnnotationView*)view];
+        }
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    if ([view isKindOfClass:[PokemonAnnotationView class]])
+    {
+        for (id subview in view.subviews)
+        {
+            [subview removeFromSuperview];
+        }
+    }
+}
+
+- (void)updateAnnotationPosition:(PokemonAnnotationView *)annotationView {
+//    CGFloat defaultShift = 50.0f;
+//    //CGPoint pinPosition = CGPointMake(annotationView.frame.midX, annotationView.frame.maxY);
+//    CGPoint annotationPosition = CGPointMake(45/2, 0);
+//    
+//    CGFloat y = annotationPosition.y - defaultShift;
+//    
+//    CGPoint controlPoint = CGPointMake(annotationPosition.x, y);
+//    CLLocationCoordinate2D controlPointCoordinate = [self.mapview convertPoint:controlPoint toCoordinateFromView:self.mapview];
+//    
+//    [self.mapview setCenterCoordinate:controlPointCoordinate animated:YES];
+    [self.mapview setCenterCoordinate:annotationView.annotation.coordinate animated:YES];
+}
+
 
 #pragma mark - CLLocationManager delegate
 
@@ -528,7 +563,7 @@ BOOL mapCenterToGPSLocation                 = YES;
         {
             if ([anObject isKindOfClass:[Pokemon class]]) {
                 Pokemon *pokemon = (Pokemon *)anObject;
-                PokemonAnnotation *point = [[PokemonAnnotation alloc] initWithPokemon:pokemon andLocalization:self.localization];
+                PokemonAnnotation *point = [[PokemonAnnotation alloc] initWithPokemon:pokemon];
                 [self.annotationsToAdd addObject:point];
             } else if ([anObject isKindOfClass:[Gym class]]) {
                 Gym *gym = (Gym *)anObject;
@@ -567,7 +602,7 @@ BOOL mapCenterToGPSLocation                 = YES;
             if ([anObject isKindOfClass:[Pokemon class]]) {
                 Pokemon *pokemon = (Pokemon *)anObject;
                 [self.annotationsPokemonToDelete addObject:pokemon.spawnpoint];
-                PokemonAnnotation *point = [[PokemonAnnotation alloc] initWithPokemon:pokemon andLocalization:self.localization];
+                PokemonAnnotation *point = [[PokemonAnnotation alloc] initWithPokemon:pokemon];
                 [self.annotationsToAdd addObject:point];
             } else if ([anObject isKindOfClass:[Gym class]]) {
                 Gym *gym = (Gym *)anObject;
@@ -780,7 +815,7 @@ BOOL mapCenterToGPSLocation                 = YES;
         }
         if (self.pokemonFetchResultController) {
             for (Pokemon *pokemon in self.pokemonFetchResultController.fetchedObjects) {
-                PokemonAnnotation *point = [[PokemonAnnotation alloc] initWithPokemon:pokemon andLocalization:self.localization];
+                PokemonAnnotation *point = [[PokemonAnnotation alloc] initWithPokemon:pokemon];
                 [annotations addObject:point];
             }
         }
@@ -831,33 +866,19 @@ BOOL mapCenterToGPSLocation                 = YES;
 
 #pragma mark - Load helpers
 
--(void)loadLocalization {
-    NSError *error;
-    
-    NSURL *filePath = [[NSBundle mainBundle] URLForResource:@"pokemon" withExtension:@"json"];
-    
-    self.localization = [[NSDictionary alloc] init];
-    
-    NSString *stringPath = [filePath absoluteString];
-    NSData *localizationData = [NSData dataWithContentsOfURL:[NSURL URLWithString:stringPath]];
-    
-    self.localization = [NSJSONSerialization JSONObjectWithData:localizationData
-                                                        options:NSJSONReadingMutableContainers
-                                                          error:&error];
-}
-
 -(void)loadNavBar
 {
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_app"]];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 89, 20)];
-    imageView.frame = titleView.bounds;
-    [titleView addSubview:imageView];
-    
-    self.navigationItem.titleView = titleView;
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+//    
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_app"]];
+//    imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    
+//    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 89, 20)];
+//    imageView.frame = titleView.bounds;
+//    [titleView addSubview:imageView];
+//    
+//    self.navigationItem.titleView = titleView;
 }
 
 #pragma mark - Actions

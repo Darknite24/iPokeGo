@@ -11,11 +11,12 @@
 
 @interface PokemonAnnotation : MKPointAnnotation
 
+@property (nonatomic, strong) Pokemon *pokemon;
 @property int pokemonID;
 @property NSDate *expirationDate;
 @property NSString *spawnpointID;
 @property NSString *rarity;
 
-- (instancetype)initWithPokemon:(Pokemon *)pokemon andLocalization:(NSDictionary *)localization;
+- (instancetype)initWithPokemon:(Pokemon *)pokemon;
 
 @end

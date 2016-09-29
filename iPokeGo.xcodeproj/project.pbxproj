@@ -83,6 +83,12 @@
 		81C9636F1D4F254A00DD6592 /* GymAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C9636E1D4F254A00DD6592 /* GymAnnotationView.m */; };
 		81C963721D4F26C700DD6592 /* PokeStopAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C963711D4F26C700DD6592 /* PokeStopAnnotationView.m */; };
 		81C963751D4F27A200DD6592 /* PokemonAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C963741D4F27A200DD6592 /* PokemonAnnotationView.m */; };
+		85CC88E31D9D5B9B000A825B /* moves.json in Resources */ = {isa = PBXBuildFile; fileRef = 85CC88E11D9D5B9B000A825B /* moves.json */; };
+		85CC88EA1D9D6848000A825B /* PokemonCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85CC88E91D9D6848000A825B /* PokemonCalloutView.xib */; };
+		85CC88EE1D9D6922000A825B /* PokemonCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CC88ED1D9D6922000A825B /* PokemonCalloutView.m */; };
+		85CC88F01D9D9478000A825B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CC88EF1D9D9478000A825B /* QuartzCore.framework */; };
+		85CC88F51D9DCA64000A825B /* PokemonListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CC88F21D9DCA64000A825B /* PokemonListTableViewCell.m */; };
+		85CC88F91D9DCA85000A825B /* PokemonListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CC88F81D9DCA85000A825B /* PokemonListTableViewController.m */; };
 		866862CD1D5D4667003070F3 /* FollowLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 866862CC1D5D4667003070F3 /* FollowLocationHelper.m */; };
 		AEFA37EE1D47D04200DEE95C /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = AEFA37F01D47D04200DEE95C /* pokemon.json */; };
 		AEFA37F81D49252100DEE95C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEFA37F61D49252100DEE95C /* Localizable.strings */; };
@@ -267,6 +273,15 @@
 		81C963711D4F26C700DD6592 /* PokeStopAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokeStopAnnotationView.m; sourceTree = "<group>"; };
 		81C963731D4F27A200DD6592 /* PokemonAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonAnnotationView.h; sourceTree = "<group>"; };
 		81C963741D4F27A200DD6592 /* PokemonAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonAnnotationView.m; sourceTree = "<group>"; };
+		85CC88E21D9D5B9B000A825B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/moves.json; sourceTree = "<group>"; };
+		85CC88E91D9D6848000A825B /* PokemonCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokemonCalloutView.xib; sourceTree = "<group>"; };
+		85CC88EC1D9D6922000A825B /* PokemonCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonCalloutView.h; sourceTree = "<group>"; };
+		85CC88ED1D9D6922000A825B /* PokemonCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonCalloutView.m; sourceTree = "<group>"; };
+		85CC88EF1D9D9478000A825B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		85CC88F11D9DCA64000A825B /* PokemonListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonListTableViewCell.h; sourceTree = "<group>"; };
+		85CC88F21D9DCA64000A825B /* PokemonListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonListTableViewCell.m; sourceTree = "<group>"; };
+		85CC88F71D9DCA85000A825B /* PokemonListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonListTableViewController.h; sourceTree = "<group>"; };
+		85CC88F81D9DCA85000A825B /* PokemonListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonListTableViewController.m; sourceTree = "<group>"; };
 		866862CC1D5D4667003070F3 /* FollowLocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowLocationHelper.m; sourceTree = "<group>"; };
 		866862CE1D5D468B003070F3 /* FollowLocationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowLocationHelper.h; sourceTree = "<group>"; };
 		8673808B1D60E1340062A80B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
@@ -295,6 +310,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85CC88F01D9D9478000A825B /* QuartzCore.framework in Frameworks */,
 				27F4244E1D469710007ADEE4 /* AudioToolbox.framework in Frameworks */,
 				27F385901D4133580004A1B3 /* MapKit.framework in Frameworks */,
 			);
@@ -320,6 +336,8 @@
 		0256E3801D473D4900CEEE3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				85CC88F11D9DCA64000A825B /* PokemonListTableViewCell.h */,
+				85CC88F21D9DCA64000A825B /* PokemonListTableViewCell.m */,
 				0256E38A1D474C5A00CEEE3F /* DistanceLabel.h */,
 				0256E38B1D474C5A00CEEE3F /* DistanceLabel.m */,
 				81C9636D1D4F254A00DD6592 /* GymAnnotationView.h */,
@@ -340,6 +358,8 @@
 				2785D1171D5E153A004FC688 /* TagLabel.m */,
 				27C2BF971D648D81005F1677 /* TagButton.h */,
 				27C2BF981D648D81005F1677 /* TagButton.m */,
+				85CC88EC1D9D6922000A825B /* PokemonCalloutView.h */,
+				85CC88ED1D9D6922000A825B /* PokemonCalloutView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -360,6 +380,7 @@
 		272FCEA71D423F74003ED548 /* Localizations */ = {
 			isa = PBXGroup;
 			children = (
+				85CC88E11D9D5B9B000A825B /* moves.json */,
 				AEFA37F01D47D04200DEE95C /* pokemon.json */,
 			);
 			name = Localizations;
@@ -662,6 +683,7 @@
 				81055B901D4D3DCF0071FDD2 /* Data Layer */,
 				2798B9DA1D4F8CEC00B33BE5 /* LaunchScreen.storyboard */,
 				27F385641D4130B30004A1B3 /* Main.storyboard */,
+				85CC88E91D9D6848000A825B /* PokemonCalloutView.xib */,
 				81771E051D4D8623004DC881 /* Resources */,
 				81055BA91D4D41130071FDD2 /* Server */,
 				27F3855B1D4130B30004A1B3 /* Supporting Files */,
@@ -700,6 +722,7 @@
 		27F3858E1D4133580004A1B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85CC88EF1D9D9478000A825B /* QuartzCore.framework */,
 				27F4244F1D469A68007ADEE4 /* CoreTelephony.framework */,
 				27F4244D1D469710007ADEE4 /* AudioToolbox.framework */,
 				27F3858F1D4133580004A1B3 /* MapKit.framework */,
@@ -746,6 +769,8 @@
 		81771E041D4D85F2004DC881 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				85CC88F71D9DCA85000A825B /* PokemonListTableViewController.h */,
+				85CC88F81D9DCA85000A825B /* PokemonListTableViewController.m */,
 				27F385611D4130B30004A1B3 /* MapViewController.h */,
 				27F385621D4130B30004A1B3 /* MapViewController.m */,
 				276FD5581D457AD5006E4B96 /* Settings */,
@@ -833,6 +858,7 @@
 				TargetAttributes = {
 					27F385571D4130B30004A1B3 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 988SV2J28E;
 						DevelopmentTeamName = "Dimitri Dessus";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -894,11 +920,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				273604661D441B7B00194BAF /* favoritePokemon.mp3 in Resources */,
+				85CC88E31D9D5B9B000A825B /* moves.json in Resources */,
 				AEFA37EE1D47D04200DEE95C /* pokemon.json in Resources */,
 				273604561D44094700194BAF /* ding.mp3 in Resources */,
 				AEFA37F81D49252100DEE95C /* Localizable.strings in Resources */,
 				2798B9DB1D4F8CEC00B33BE5 /* LaunchScreen.storyboard in Resources */,
 				27F385681D4130B30004A1B3 /* Assets.xcassets in Resources */,
+				85CC88EA1D9D6848000A825B /* PokemonCalloutView.xib in Resources */,
 				27DE81921D61D59400F5F87E /* licenses.html in Resources */,
 				27F385661D4130B30004A1B3 /* Main.storyboard in Resources */,
 			);
@@ -925,6 +953,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85CC88EE1D9D6922000A825B /* PokemonCalloutView.m in Sources */,
 				276B89881D50FA8B008164FE /* PokestopsSettingsTableViewController.m in Sources */,
 				27BA23A51D731AE1005CC560 /* UINavigationController+M13ProgressViewBar.m in Sources */,
 				27BA23AC1D731AE1005CC560 /* M13ProgressViewMetro.m in Sources */,
@@ -933,6 +962,7 @@
 				27BA23A31D731AE1005CC560 /* M13ProgressHUD.m in Sources */,
 				27C2BF991D648D81005F1677 /* TagButton.m in Sources */,
 				27BA23B31D731AE1005CC560 /* M13ProgressViewStripedBar.m in Sources */,
+				85CC88F51D9DCA64000A825B /* PokemonListTableViewCell.m in Sources */,
 				272E3B681D7C73A10027A833 /* ServersTableViewCell.m in Sources */,
 				27C2BF911D646A99005F1677 /* ScanLocations+CoreDataClass.m in Sources */,
 				0256E38F1D47BF9200CEEE3F /* NSString+Formatting.m in Sources */,
@@ -969,6 +999,7 @@
 				27BA23A71D731AE1005CC560 /* M13ProgressViewBar.m in Sources */,
 				81C963751D4F27A200DD6592 /* PokemonAnnotationView.m in Sources */,
 				27F3855D1D4130B30004A1B3 /* main.m in Sources */,
+				85CC88F91D9DCA85000A825B /* PokemonListTableViewController.m in Sources */,
 				27BA23AB1D731AE1005CC560 /* M13ProgressViewLetterpress.m in Sources */,
 				273604641D440E4900194BAF /* CWStatusBarNotification.m in Sources */,
 				27BA23AA1D731AE1005CC560 /* M13ProgressViewImage.m in Sources */,
@@ -1043,6 +1074,14 @@
 				9206A3161D806417004959DA /* zh-Hant-TW */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85CC88E11D9D5B9B000A825B /* moves.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85CC88E21D9D5B9B000A825B /* en */,
+			);
+			name = moves.json;
 			sourceTree = "<group>";
 		};
 		AEFA37F01D47D04200DEE95C /* pokemon.json */ = {
@@ -1173,10 +1212,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 988SV2J28E;
 				INFOPLIST_FILE = iPokeGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dimitri-dessus.iPokeGo";
+				PRODUCT_BUNDLE_IDENTIFIER = net.taknology.PokeTracks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1188,10 +1228,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 988SV2J28E;
 				INFOPLIST_FILE = iPokeGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dimitri-dessus.iPokeGo";
+				PRODUCT_BUNDLE_IDENTIFIER = net.taknology.PokeTracks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

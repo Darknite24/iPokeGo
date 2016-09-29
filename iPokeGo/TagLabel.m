@@ -10,6 +10,17 @@
 
 @implementation TagLabel
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        self.textColor              = [UIColor whiteColor];
+        self.textAlignment = NSTextAlignmentCenter;
+        self.layer.cornerRadius     = 5.0f;
+        self.layer.masksToBounds    = YES;
+        self.font                   = [UIFont fontWithName:@"HelveticaNeue" size:15];
+    }
+    return self;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.textColor              = [UIColor whiteColor];

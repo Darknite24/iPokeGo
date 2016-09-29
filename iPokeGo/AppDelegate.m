@@ -24,10 +24,14 @@
 @property iPokeServerSync *server;
 @property PokemonNotifier *notifier;
 @property CLLocationManager *backgroundManager;
+@property NSDictionary *localization;
+@property NSDictionary *moves;
 
 @end
 
 @implementation AppDelegate
+
+static AppDelegate *sharedDelegate;
 
 NSString * const AppDelegateNotificationTapped = @"Poke.AppDelegateNotificationTapped";
 
@@ -37,6 +41,13 @@ static NSTimeInterval AppDelegateTimerRefreshFrequency = 1.0;
 static NSTimeInterval AppDelegateTimerCleanFrequency = 1.0;
 static NSTimeInterval AppDelegatServerRefreshFrequency = 5.0;
 static NSTimeInterval AppDelegatServerRefreshFrequencyBackground = 20.0;
+
++ (AppDelegate *)sharedDelegate {
+    if (!sharedDelegate) {
+        sharedDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    }
+    return sharedDelegate;
+}
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     AppDelegateCleanerQueue = dispatch_queue_create("iPoke.cleaner", NULL);
@@ -241,6 +252,52 @@ static NSTimeInterval AppDelegatServerRefreshFrequencyBackground = 20.0;
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     //Nothing to do here, it's just a keepalive
+}
+
+#pragma mark - Load helpers
+
+- (NSDictionary*)getLocalization {
+    if (!_localization) {
+        [self loadLocalization];
+    }
+    return _localization;
+}
+
+- (NSDictionary*)getMoves {
+    if (!_moves) {
+        [self loadMoves];
+    }
+    return _moves;
+}
+
+-(void)loadLocalization {
+    NSError *error;
+    
+    NSURL *filePath = [[NSBundle mainBundle] URLForResource:@"pokemon" withExtension:@"json"];
+    
+    self.localization = [[NSDictionary alloc] init];
+    
+    NSString *stringPath = [filePath absoluteString];
+    NSData *localizationData = [NSData dataWithContentsOfURL:[NSURL URLWithString:stringPath]];
+    
+    self.localization = [NSJSONSerialization JSONObjectWithData:localizationData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&error];
+}
+
+-(void)loadMoves {
+    NSError *error;
+    
+    NSURL *filePath = [[NSBundle mainBundle] URLForResource:@"moves" withExtension:@"json"];
+    
+    self.moves = [[NSDictionary alloc] init];
+    
+    NSString *stringPath = [filePath absoluteString];
+    NSData *movesData = [NSData dataWithContentsOfURL:[NSURL URLWithString:stringPath]];
+    
+    self.moves = [NSJSONSerialization JSONObjectWithData:movesData
+                                                 options:NSJSONReadingMutableContainers
+                                                   error:&error];
 }
 
 @end

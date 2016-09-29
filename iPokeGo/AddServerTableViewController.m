@@ -28,7 +28,7 @@ int short server_type = POKEMONGOMAP_TYPE;
 {
     [super viewWillAppear:animated];
     
-    self.serverTypeLabel.text = @"PokemonGo-Map";
+    self.serverTypeLabel.text = NSLocalizedString(@"PokemonGo-Map", @"The type of map selected for use by the app");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,19 +98,19 @@ int short server_type = POKEMONGOMAP_TYPE;
                                     preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *pokemongomap = [UIAlertAction
-                                       actionWithTitle:@"PokemonGo-Map"
+                                       actionWithTitle:NSLocalizedString(@"PokemonGo-Map", @"The type of map selected for use by the app")
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction * action)
                                        {
-                                           self.serverTypeLabel.text = @"PokemonGo-Map";
+                                           self.serverTypeLabel.text = NSLocalizedString(@"PokemonGo-Map", @"The type of map selected for use by the app");
                                            server_type = POKEMONGOMAP_TYPE;
                                        }];
         UIAlertAction *pogom = [UIAlertAction
-                                actionWithTitle:@"Pogom"
+                                actionWithTitle:NSLocalizedString(@"PokemonGo-Map", @"The type of map selected for use by the app")
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action)
                                 {
-                                    self.serverTypeLabel.text = @"Pogom";
+                                    self.serverTypeLabel.text = NSLocalizedString(@"PokemonGo-Map", @"The type of map selected for use by the app");
                                     server_type = POGOM_TYPE;
                                 }];
         UIAlertAction *cancel = [UIAlertAction

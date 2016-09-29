@@ -10,6 +10,8 @@
 
 @interface TimeLabel : UILabel
 
+@property (nonatomic, strong) UIColor *preferredBackgroundColor;
+
 - (void)setDate:(NSDate*)date;
 
 @end

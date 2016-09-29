@@ -17,6 +17,7 @@
 @implementation TimerLabel
 
 NSString * const TimerLabelUpdateNotification = @"Poke.TimerLabelUpdateNotification";
+NSString * const TimerLabelExpiredNotification = @"Poke.TimerLabelExpiredNotification";
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -75,6 +76,7 @@ NSString * const TimerLabelUpdateNotification = @"Poke.TimerLabelUpdateNotificat
         self.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
     } else {
         self.text = @"-";
+        [[NSNotificationCenter defaultCenter] postNotificationName:TimerLabelExpiredNotification object:nil];
     }
 }
 

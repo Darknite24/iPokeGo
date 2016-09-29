@@ -10,6 +10,7 @@
 #import "TimeLabel.h"
 
 extern NSString * const TimerLabelUpdateNotification;
+extern NSString * const TimerLabelExpiredNotification;
 
 @interface TimerLabel : TimeLabel
 
