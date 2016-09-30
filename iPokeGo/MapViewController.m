@@ -22,6 +22,7 @@
 #import "DeviceVibrate.h"
 #import "PokemonCalloutView.h"
 #import "PokemonAnnotation.h"
+#import <LSLogViewer/LSLogViewer.h>
 
 @import CoreData;
 
@@ -478,7 +479,9 @@ BOOL mapCenterToGPSLocation                 = YES;
     {
         for (id subview in view.subviews)
         {
-            [subview removeFromSuperview];
+            if ([subview isKindOfClass:[PokemonCalloutView class]]) {
+                [subview removeFromSuperview];
+            }
         }
     }
 }
@@ -967,6 +970,10 @@ BOOL mapCenterToGPSLocation                 = YES;
     [self.searchBar resignFirstResponder];
     self.locationsSearched = nil;
     [self.searchDisplayController.searchResultsTableView reloadData];
+}
+
+- (IBAction)showDebugWindow:(id)sender {
+    [LSLogViewer showViewer];
 }
 
 #pragma mark - Search bar delegate

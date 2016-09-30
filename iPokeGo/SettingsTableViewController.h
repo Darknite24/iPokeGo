@@ -53,5 +53,6 @@ extern NSString * const BackgroundSettingChangedNotification;
 
 -(IBAction)saveAction:(UIBarButtonItem *)sender;
 -(IBAction)swicthsAction:(UISwitch *)sender;
+- (IBAction)cancelAction:(id)sender;
 
 @end

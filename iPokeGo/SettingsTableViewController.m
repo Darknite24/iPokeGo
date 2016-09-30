@@ -90,6 +90,10 @@ NSString * const BackgroundSettingChangedNotification   = @"Poke.BackgroundSetti
     }
 }
 
+- (IBAction)cancelAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

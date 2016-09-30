@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqr-1P-Zum">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqr-1P-Zum">
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="CMF-dP-z3f"/>
                                 </connections>
@@ -61,12 +61,12 @@
                                 </constraints>
                                 <state key="normal" image="settings2"/>
                                 <connections>
-                                    <segue destination="J9n-1T-uXc" kind="popoverPresentation" popoverAnchorView="jDj-3Y-of2" id="wUi-aq-3H0">
+                                    <segue destination="J9n-1T-uXc" kind="popoverPresentation" identifier="showSettings" popoverAnchorView="jDj-3Y-of2" id="wUi-aq-3H0">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hus-9K-tQQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hus-9K-tQQ">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="26f-ny-YCa"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="8FE-Og-CCV"/>
@@ -74,6 +74,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="wO4-8R-eSW"/>
                                 </constraints>
                                 <state key="normal" image="debug"/>
+                                <connections>
+                                    <action selector="showDebugWindow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fxN-0Y-3B3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99983716011047363" blue="0.99994874000549316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -104,7 +107,7 @@
                     <navigationItem key="navigationItem" title="PokeTracks" id="9hh-uV-Y8u">
                         <barButtonItem key="leftBarButtonItem" image="ico-to-do-list" id="fu5-Cl-M8R">
                             <connections>
-                                <segue destination="dEB-nb-9Yn" kind="presentation" identifier="showSettings" id="DAC-kl-R6I"/>
+                                <segue destination="dEB-nb-9Yn" kind="presentation" identifier="showPokeList" id="DAC-kl-R6I"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="map_type" id="2HB-3n-OFc">
@@ -501,6 +504,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="n4v-qt-5L6">
                         <barButtonItem key="backBarButtonItem" title=" " id="eb4-go-Qr9"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Fmf-1K-M1X">
+                            <connections>
+                                <action selector="cancelAction:" destination="CoE-At-s1E" id="Re8-I5-ig8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="m43-dh-gzf">
                             <connections>
                                 <action selector="saveAction:" destination="CoE-At-s1E" id="3SK-Mq-UnH"/>

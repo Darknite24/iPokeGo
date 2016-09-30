@@ -395,7 +395,13 @@ static NSURLSession *iPokeServerSyncSharedSession;
         // if current entry is already expired, do not add again
         NSTimeInterval disappearsTimeInterval = [rawValues[@"disappear_time"] doubleValue] / 1000.0;
         NSDate *disappearsTime = [NSDate dateWithTimeIntervalSince1970:disappearsTimeInterval];
-        if (disappearsTime < [NSDate date]) {
+//        if (disappearsTime < [NSDate date]) {
+//            NSLog(@"Skipped adding pokemon with disappear_time of %@", disappearsTime);
+//            continue;
+//        }
+        NSDate *now = [NSDate date];
+        if ([disappearsTime compare:now] == NSOrderedAscending ||
+            [disappearsTime compare:now] == NSOrderedSame) {
             NSLog(@"Skipped adding pokemon with disappear_time of %@", disappearsTime);
             continue;
         }

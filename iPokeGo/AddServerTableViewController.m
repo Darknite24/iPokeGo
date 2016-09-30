@@ -106,11 +106,11 @@ int short server_type = POKEMONGOMAP_TYPE;
                                            server_type = POKEMONGOMAP_TYPE;
                                        }];
         UIAlertAction *pogom = [UIAlertAction
-                                actionWithTitle:NSLocalizedString(@"PokemonGo-Map", @"The type of map selected for use by the app")
+                                actionWithTitle:NSLocalizedString(@"Pogom", @"The type of map selected for use by the app")
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action)
                                 {
-                                    self.serverTypeLabel.text = NSLocalizedString(@"PokemonGo-Map", @"The type of map selected for use by the app");
+                                    self.serverTypeLabel.text = NSLocalizedString(@"Pogom", @"The type of map selected for use by the app");
                                     server_type = POGOM_TYPE;
                                 }];
         UIAlertAction *cancel = [UIAlertAction

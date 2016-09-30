@@ -31,5 +31,6 @@ extern NSString * const MapViewReloadData;
 -(IBAction)radarAction:(id)sender;
 -(IBAction)maptypeAction:(id)sender;
 -(IBAction)searchButtonAction:(id)sender;
+- (IBAction)showDebugWindow:(id)sender;
 
 @end

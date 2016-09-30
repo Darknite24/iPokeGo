@@ -108,6 +108,9 @@ static NSTimeInterval AppDelegatServerRefreshFrequencyBackground = 20.0;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
+
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+
     // Notifications
     if([application respondsToSelector:@selector(registerUserNotificationSettings:)])
     {

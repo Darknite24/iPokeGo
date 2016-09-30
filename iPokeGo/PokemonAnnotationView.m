@@ -222,6 +222,7 @@
         } else {
             self.canShowCallout = YES;
         }
+
         self.rightCalloutAccessoryView = button;
         self.image = [UIImage imageNamed:[NSString stringWithFormat:@"Pokemon_%@", @(annotation.pokemonID)]];
         self.frame = CGRectMake(0, 0, 45, 45);
@@ -262,6 +263,11 @@
 {
     self.location = location;
     super.annotation = annotation;
+    if (((PokemonAnnotation*)annotation).pokemon.attack > 0) {
+        self.canShowCallout = NO;
+    } else {
+        self.canShowCallout = YES;
+    }
     
     [self updateForAnnotation:annotation withLocation:location];
 }
