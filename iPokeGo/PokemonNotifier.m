@@ -90,7 +90,7 @@
     BOOL pokemonIsInRange   = FALSE;
     
     if([pokemon isFav]) {
-        message = [NSString localizedStringWithFormat:NSLocalizedString(@"[Pokemon] your favorite pokemon was added to the map!", @"The hint that a favorite Pokémon appeared on the map.") , [self.localization objectForKey:[NSString stringWithFormat:@"%d", pokemon.identifier]]];
+        message = [NSString localizedStringWithFormat:NSLocalizedString(@"[Pokemon], a favorite pokemon, was added to the map!", @"The hint that a favorite Pokémon appeared on the map.") , [self.localization objectForKey:[NSString stringWithFormat:@"%d", pokemon.identifier]]];
         sound   = self.pokemonFavAppearSound;
         pokemonIsInRange = [prefs integerForKey:@"favorite_notification_range"] ? distanceFromUser < [prefs integerForKey:@"favorite_notification_range"] : YES;
     } else {

@@ -343,14 +343,14 @@
 		0256E3801D473D4900CEEE3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				85CC88F11D9DCA64000A825B /* PokemonListTableViewCell.h */,
-				85CC88F21D9DCA64000A825B /* PokemonListTableViewCell.m */,
 				0256E38A1D474C5A00CEEE3F /* DistanceLabel.h */,
 				0256E38B1D474C5A00CEEE3F /* DistanceLabel.m */,
 				81C9636D1D4F254A00DD6592 /* GymAnnotationView.h */,
 				81C9636E1D4F254A00DD6592 /* GymAnnotationView.m */,
 				81C963731D4F27A200DD6592 /* PokemonAnnotationView.h */,
 				81C963741D4F27A200DD6592 /* PokemonAnnotationView.m */,
+				85CC88F11D9DCA64000A825B /* PokemonListTableViewCell.h */,
+				85CC88F21D9DCA64000A825B /* PokemonListTableViewCell.m */,
 				277209DD1D441E1F0008B7FA /* PokemonTableViewCell.h */,
 				277209DE1D441E1F0008B7FA /* PokemonTableViewCell.m */,
 				81C963701D4F26C700DD6592 /* PokeStopAnnotationView.h */,
@@ -780,10 +780,10 @@
 		81771E041D4D85F2004DC881 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				85CC88F71D9DCA85000A825B /* PokemonListTableViewController.h */,
-				85CC88F81D9DCA85000A825B /* PokemonListTableViewController.m */,
 				27F385611D4130B30004A1B3 /* MapViewController.h */,
 				27F385621D4130B30004A1B3 /* MapViewController.m */,
+				85CC88F71D9DCA85000A825B /* PokemonListTableViewController.h */,
+				85CC88F81D9DCA85000A825B /* PokemonListTableViewController.m */,
 				276FD5581D457AD5006E4B96 /* Settings */,
 			);
 			name = Controllers;
